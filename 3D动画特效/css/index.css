@@ -1,0 +1,220 @@
+
+*{ margin:0; padding:0; font-family:"Microsoft yahei",serif;}
+li{ list-style-type: none;}
+body,html{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+#all{
+    position: absolute;
+    width: 400%;
+    height: 100%;
+    left: 0;
+    transition: 1s;
+}
+#all.left{
+    left: -100%;
+}
+#main{
+    float: left;
+    position: relative;
+    width: 25%;
+    height: 100%;
+    background: #023b3b url("../img/bg.png") center center;
+    perspective: 800px;
+}
+
+#list ul{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 160px;
+    margin-top: -80px;
+    margin-left: -60px;
+    transform-style: preserve-3d;
+    transform: translateZ(-2000px) rotateX(0deg) rotateY(0deg);
+}
+#list ul li{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,127,127,0.5);
+    border: 1px solid rgba(127,255,255,0.25);
+    box-shadow: 0 0 12px rgba(0,255,255,0.5);
+    text-align: center;
+    color: #fff;
+    cursor: default;
+    transition: 3s cubic-bezier(.94,.02,.49,.98);
+}
+#list ul li .liCover{
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    z-index: 9;
+    width: 122px;
+    height: 162px;
+}
+#list ul li .liTitle{
+    font-size: 50px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 10px;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+#list ul li .liAuthor{
+    margin-top: 10px;
+    font-weight: bold;
+    color: rgba(127,255,255,0.75);
+    font-size: 14px;
+    text-shadow: 0 0 5px rgba(0,255,255,0.5);
+}
+#list ul li .liTime{
+    margin-top: 10px;
+    font-weight: bold;
+    color: rgba(127,255,255,0.75);
+    font-size: 14px;
+    text-shadow: 0 0 5px rgba(0,255,255,0.5);
+}
+#btn{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: 300px;
+    height: 32px;
+}
+#btn ul li{
+    float: left;
+    margin: 0 5px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid rgba(127,255,255,1);
+    color: rgba(127,255,255,1);
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#btn ul li:hover{
+    background: rgba(0,127,127,0.8);
+}
+#alert{
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: rgba(0,127,127,0.5);
+    border: 1px solid rgba(127,255,255,0.25);
+    box-shadow: 0 0 12px rgba(0,255,255,0.5);
+    border-radius: 3px;
+    transform : rotateY(0deg) scale(2);
+    opacity: 1;
+    transform-style: preserve-3d;
+}
+#alert .title,#alert .img,#alert .author,#alert .info{
+    border: 1px solid rgba(127,255,255,0.25);
+    box-shadow: 0 0 12px rgba(0,255,255,0.5);
+    background: rgba(0,0,0,.5);
+    border-radius: 3px;
+}
+#alert .title{
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    width: 50%;
+    height: 10%;
+}
+#alert .title span{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    transform: translateY(-50%);
+}
+#alert .img{
+    overflow: hidden;
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    width: 45%;
+    height: 50%;
+}
+#alert .img img{
+    width: 100%;
+}
+#alert .author{
+    position: absolute;
+    top: 35%;
+    right: 5%;
+    width: 35%;
+    height: 5%;
+}
+#alert .author span{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    transform: translateY(-50%);
+}
+#alert .info{
+    position: absolute;
+    top: 45%;
+    right: 5%;
+    width: 35%;
+    height: 40%;
+}
+#alert .info span{
+    position: absolute;
+    top: 5%;
+    padding: 15px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+}
+#frame{
+    float: left;
+    width: 25%;
+    height: 100%;
+}
+#back{
+    position: absolute;
+    right: -70px;
+    bottom: 20px;
+    z-index: 99999999;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid rgba(127,255,255,1);
+    color: rgba(127,255,255,1);
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#back:hover{
+    background: rgba(0,127,127,0.8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
