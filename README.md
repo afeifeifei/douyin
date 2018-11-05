@@ -8,3 +8,4 @@
 - 数字雨：https://afeifeifei.github.io/douyin/数字雨/index.html
 - 飞机大战：https://afeifeifei.github.io/douyin/飞机大战/index.html
 - 淘宝放大镜: https://afeifeifei.github.io/douyin/淘宝放大镜/index.html
+- 数据可视化: https://afeifeifei.github.io/douyin/echarts数据可视化/index.html
