@@ -3,7 +3,8 @@
 右上角 **五角星star** 点一下呗(=・ω・=)
 
 预览地址！
-- 看板娘：https://afeifeifei.github.io/douyin/%E7%9C%8B%E6%9D%BF%E5%A8%98/demo.html
-- 3D动画特效: https://afeifeifei.github.io/douyin/3D%E5%8A%A8%E7%94%BB%E7%89%B9%E6%95%88/index.html
+- 看板娘：https://afeifeifei.github.io/douyin/看板娘/demo.html
+- 3D动画特效: https://afeifeifei.github.io/douyin/3D动画特效/index.html
 - 数字雨：https://afeifeifei.github.io/douyin/数字雨/index.html
 - 飞机大战：https://afeifeifei.github.io/douyin/飞机大战/index.html
+- 淘宝放大镜: https://afeifeifei.github.io/douyin/淘宝放大镜/index.html
