@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>please enter your title</title>
+		<meta charset="utf-8">
+		<meta name="Author" content="潭州学院-阿飞老师">
+		<style type='text/css'>
+			*{ margin:0; padding:0;}
+			li{
+				list-style:none;
+			}
+			#wrap{
+				width:400px;
+				height:500px;
+				border:1px solid #bbb;
+				margin:100px;
+			}
+			#wrap .pic{
+				width:400px;
+				height:400px;
+				position:relative;
+			}
+			#wrap .pic .pic_cover{
+				position:absolute;
+				top:0;
+				left:0;
+			}
+			#wrap .pic .pic_cover img{
+				display:block;
+			}
+			#wrap .pic .pic_cover .cover{
+				width:200px;
+				height:200px;
+				background-image:url(img/cover.png);
+				position:absolute;
+				top:0;
+				left:0;
+				cursor:move;
+				display:none;
+			}
+
+			#wrap .tab{
+				width:400px;
+				height:54px;
+				margin-top:20px;
+			}
+			#wrap .tab li{
+				width:50px;
+				height:50px;
+				float:left;
+				margin:0 13px;
+				cursor:pointer;
+				border:2px solid #fff;
+				transition:border .3s;
+				position:relative;
+			}
+			#wrap .tab li img{
+				display:none;
+				position:absolute;
+				top:0;
+				left:0;
+			}
+			#wrap .tab li.on{
+				border:2px solid #f60;
+			}
+
+			#wrap .show{
+				width:400px;
+				height:400px;
+				position:absolute;
+				top:0;
+				right:-410px;
+				background:#ffffcc;
+				display:none;
+				background-image:url(img/1.jpg);
+			}
+
+
+
+		</style>
+	</head>
+	<body>
+		
+		<div id="wrap">
+			<div class="pic">
+				<div class="pic_cover">
+					<img src="img/1.jpg" width=400 height=400 />
+					<div class="cover"></div>
+					<div class="show"></div>
+				</div>
+			</div>
+			<div class="tab">
+				<ul>
+					<li class="on"><img src="img/1.jpg" /></li>
+					<li><img src="img/2.jpg" /></li>
+					<li><img src="img/3.jpg" /></li>
+					<li><img src="img/4.jpg" /></li>
+					<li><img src="img/5.jpg" /></li>
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+		<script type="text/javascript">
+			
+				
+				var $tabLi = $('.tab ul li');
+				var $picImg = $('.pic img');
+				var $tabLiImg = $('.tab li img');
+				var $picCover = $('.pic_cover');
+				var $cover = $('.cover');
+				var $show = $('.show');
+				var imgArr = [];
+				var index = 0;
+					
+				init();
+				
+				$tabLi.hover(function(){
+					index = $(this).index();
+					//改变class名以改变边框
+					$(this).addClass('on').siblings().removeClass('on');
+					//获取小图src
+					var src = $(this).find('img').prop('src');
+					//改变大图src
+					$show.css('backgroundImage' , 'url('+src+')');
+					$picImg.prop({
+						src : src,
+						width : imgArr[index].width * 400,
+						height : imgArr[index].height * 400
+					});
+					$picCover.css({
+						top : (400 - imgArr[index].height * 400 ) / 2,
+						left : (400 - imgArr[index].width * 400 ) / 2
+					});
+					var a = 400*$picCover.width() / imgArr[index].imgW + 'px'
+					$cover.css({
+						width : a,
+						height : a
+					});
+				});
+
+				$picCover.mousemove(function(ev){
+					$cover.show();
+					$show.show();
+					var pX = ev.pageX,
+						pY = ev.pageY;
+					
+					var picCoverX = $picCover.offset().left,
+						picCoverY = $picCover.offset().top;
+					var minusX = pX - picCoverX - $cover.width()/2,
+						minusY = pY - picCoverY - $cover.height()/2;
+					
+					minusX = Math.max( minusX , 0 );
+					minusX = Math.min( minusX , $picCover.width() - $cover.width() );
+					minusY = Math.max( minusY , 0 );
+					minusY = Math.min( minusY , $picCover.height() - $cover.height() );
+					$cover.css({
+						left : minusX + 'px',
+						top : minusY + 'px'
+					});
+					$show.css('backgroundPosition' ,(-(minusX/$picCover.width())*imgArr[index].imgW) +'px '+ (-(minusY/$picCover.height())*imgArr[index].imgH) +'px');
+				}).mouseleave(function(){
+					$cover.hide();
+					$show.hide();
+				});
+				$show.mouseover(function(){
+					$cover.hide();
+					$(this).hide();
+				}).mousemove(function(){
+					return false;
+				});
+
+				function init(){
+					$tabLiImg.each(function(i){
+						var imgWidth = $(this).width();
+						var imgHeight = $(this).height();
+						if ( imgWidth >= imgHeight )
+						{
+							$(this).prop({
+								width : 50,
+								height : 50/imgWidth*imgHeight
+							});
+							$(this).css({
+								top : (50 - 50/imgWidth*imgHeight)/2 + 'px'
+							});
+							imgArr[i] = {width : 1 , height : imgHeight/imgWidth , imgW : imgWidth , imgH : imgHeight};
+						}
+						else
+						{
+							$(this).prop({
+								width : 50/imgHeight*imgWidth,
+								height : 50
+							});
+							$(this).css({
+								left : (50 - 50/imgHeight*imgWidth)/2 + 'px'
+							});
+							imgArr[i] = {width : imgWidth/imgHeight , height : 1, imgW : imgWidth , imgH : imgHeight};
+						}
+						$(this).show();
+						
+					});
+				};
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,1 @@
+CreateObject("SAPI.SpVoice").speak"回手,掏,哟,鬼刀一开,看不见,走位走位,手里干,哟嚯嚯嚯嚯嚯,难受"

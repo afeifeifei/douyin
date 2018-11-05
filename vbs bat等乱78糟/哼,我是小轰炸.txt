@@ -1,0 +1,8 @@
+Set WshShell = WScript.CreateObject("Wscript.Shell")
+WshShell.AppActivate"¡Ïµº"
+for i=1 to 100
+WScript.sleep 100
+WshShell.Sendkeys"^v"
+WshShell.Sendkeys i
+WshShell.Sendkeys"%s"
+Next
